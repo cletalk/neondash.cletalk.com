@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neon Dash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #000000;
+            overflow: hidden; 
+            position: fixed;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: 100%;
+            padding-top: 15vh;
+        }
+        .app-icon {
+            width: 110px;
+            height: 110px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            background-image: url('https://neondash.cletalk.com/square-logo.png');
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            font-size: 34px;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            letter-spacing: -1.5px;
+            text-align: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 28px;
+            border-radius: 12px;
+            transition: transform 0.1s ease;
+            border: none;
+            cursor: pointer;
+            width: 80%;
+            max-width: 280px;
+        }
+        .btn:active {
+            transform: scale(0.96);
+        }
+        .btn svg {
+            width: 22px;
+            height: 22px;
+            margin-right: 12px;
+            fill: #ffffff;
+        }
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.1;
+            text-align: left;
+        }
+        .btn-text span:first-child {
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            opacity: 0.8;
+        }
+        .btn-text span:last-child {
+            font-size: 18px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="app-icon"></div>
+        <h1>Neon Dash</h1>
+        <button class="btn" onclick="openStore()">
+            <svg viewBox="0 0 512 512">
+                <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-10.3 18-28.5-1.2-40.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"></path>
+            </svg>
+            <div class="btn-text">
+                <span>GET IT ON</span>
+                <span>Google Play</span>
+            </div>
+        </button>
+    </div>
+    <script>
+        function openStore() {
+            const intentUrl = "intent://details?id=com.cletalk.neondash#Intent;scheme=market;package=com.android.vending;end";
+            const webUrl = "https://play.google.com/store/apps/details?id=com.cletalk.neondash";
+            window.location.href = intentUrl;
+            setTimeout(() => {
+                if (!document.hidden) {
+                    window.location.href = webUrl;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
